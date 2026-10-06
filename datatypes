@@ -1,0 +1,24 @@
+import pandas as pd
+
+data = pd.read_csv("data.csv")
+
+# Show the first few rows
+print(data.head())
+
+# Show just the name column
+print(data["name"])
+
+# Show only rows where age is over 25
+older_people = data[data["age"] > 25]
+print(older_people)
+
+# Calculate the average age
+average_age = data["age"].mean()
+print("Average age:", average_age)
+
+# Add a column showing each person's age next year
+data["age_next_year"] = data["age"] + 1
+print(data)
+
+# Save the updated table to a new CSV file
+data.to_csv("updated_data.csv", index=False)
